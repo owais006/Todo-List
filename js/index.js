@@ -35,7 +35,6 @@ function add_items(v) {
     document.getElementById("myInput").value = "";
     clear();
   } else {
-    // inputValue= document.getElementById("myInput").value;
     if (inputValue === "") {
       alert("You must write something!");
     } else {
@@ -46,7 +45,6 @@ function add_items(v) {
         id: Date.now(),
         data: {
           content: val,
-          // created_date:new Date().toJSON().slice(0,10) +","+ new Date().toJSON().slice(11,20),
           created_date: datetime,
           updated_date: datetime,
         },
@@ -80,9 +78,7 @@ function display() {
     var date = todo_list[i].data.created_date;
     var u_date = todo_list[i].data.updated_date;
     var di = document.createElement("div");
-    // di.innerHTML=`${date}`;
     li.append(val, `\n`);
-    // li.append(di);
     var ul = document.getElementById("myUL").appendChild(li);
     var span = document.createElement("SPAN");
     var span2 = document.createElement("SPAN");
@@ -120,7 +116,6 @@ function display() {
 
     for (const child of ul.children) {
       ico.onclick = function () {
-        // console.log(child.id);
         delete_items(child.id);
       };
     }
@@ -134,27 +129,10 @@ function display() {
     for (const v of ul.children) {
       span4.onclick = function() {
         var complete=todo_list[v.id].data.content;
-        // ico2.id.style.display="none";
-        // for(const ch of span2.children){
-        //   console.log(ch);
-        //   // ch.style.display="none";
-        //   console.log(count)
-        // }
         console.log(i);
         v.style.backgroundColor="lightgreen";
-        // console.log(chk.len)
       };
     }
-    // for (i = 0; i <chk.length; i++) {
-    //   chk[i].onclick = function() {
-    //     // console.log(edi[0]);
-    //   var div = this.firstChild;
-    //   var div2=this.parentElement;
-    //   div2.style.backgroundColor="lightgreen";
-    //   div.style.display = "none";
-    //   console.log(i);
-    //   }
-    // }
   }
 }
 
@@ -163,7 +141,6 @@ function clear() {
   while (cl.firstChild) {
     cl.removeChild(cl.firstChild);
   }
-  // console.log(id)
   display();
 }
 
@@ -176,7 +153,6 @@ function set_items() {
 }
 
 function delete_items(id) {
-  // console.log(id);
   todo_list.splice(id, 1);
   set_items();
   console.log(todo_list);
@@ -188,5 +164,4 @@ function edit_items(v) {
   flag = 1;
   edit_id = v;
   console.log(v);
-  // console.log("edit")
 }
